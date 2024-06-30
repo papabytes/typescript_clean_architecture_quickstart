@@ -1,0 +1,20 @@
+services:
+  app:
+    image: github.com/papabytes/typescript-clean-arch-quickstart:dev
+    container_name: typescript_quickstart
+    build:
+      dockerfile: ./dockerfile
+      context: .
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+
+volumes:
+  mongo_data:
